@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/social-circles.min.css">
+  </head>
+
+  <body>
+    <section>
+
+      <div class="intro-content">
+        <div class="title text-center">The Wedding Ceremony of</div>
+        <div class="brand text-center">
+          <h1 class="wow fadeInDown" style="visibility: visible; animation-name: fadeInDown;">Harish</h1>
+          <div class="heart">
+            &#128158;
+          </div>
+          <h1 class="wow fadeInDown" style="visibility: visible; animation-name: fadeInDown;">Bhavana</h1>
+        </div><!-- brand -->
+        <div class="location text-center">Bengaluru</div>
+        <div class="date text-center">01 . 10 . 2017</div>
+
+        <div id="clockDiv" style="margin-top: 3rem;">
+          <div>
+            <span class="clock-days"></span>
+            <div class="smalltext">Days</div>
+          </div>
+          <div>
+            <span class="clock-hours"></span>
+            <div class="smalltext">Hours</div>
+          </div>
+          <div>
+            <span class="clock-minutes"></span>
+            <div class="smalltext">Minutes</div>
+          </div>
+          <div>
+            <span class="clock-seconds"></span>
+            <div class="smalltext">Seconds</div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+    <section>
+      <div class="flex-middle-elem">
+        <div class="dates-info wow fadeIn">
+          <div class="ceremony">Reception</div>
+          <div class="day-month">01 November 2017</div>
+          <div class="time">7PM Onwards</div>
+        </div>
+        <div class="second-para table-cell-elem">Be a witness to the bookmark of an important chapter in our life.</div>
+      </div>
+    </section>
+    <section>
+      <div class="third-para-div flex-middle-elem">
+        <div class="dates-info wow fadeIn">
+            <div class="ceremony">Muhurtham</div>
+          <div class="day-month">02 November 2017</div>
+          <div class="time">7PM Onwards</div>
+            <div class="time">9.48 AM</div>
+        </div>
+        <div class="third-para">Have some fun<sup style="color: gold; font-family:initial;">&#9787;</sup> while we accept <br>"Terms & Conditions"!!</div>
+      </div>
+    </section>
+    <section>
+      <p class="fourth-para" style="width: 450px;">
+        <span style="color:#ff7a00">Sentence hearing at </span><br><br>
+        <a class="location-name" href="myFrame">Srigandha Palace</a><br><br>
+        Kodigehalli Gate,<br>
+        New International Airport Road, <br>
+        Bengaluru<br><br>
+        <a target="_blank" class="icon-facebook social-button grey" href="https://www.facebook.com/events/179621639274859"></a>
+        <a target="_blank" class="icon-googleplus social-button grey" href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=N2cwcDY1ZXJubGhiNjZ1NWJpYW9iMmlyY2cgaW1kbGVnZW5kMjVAbQ&amp;tmsrc=imdlegend25%40gmail.com""></a>
+      </p>
+
+    </section>
+    <iframe id="myFrame" src="http://www.google.com/maps/embed/v1/place?q=Srigandha%20State%20Palace&zoom=15&attribution_source=Google+Maps+Embed+API&attribution_web_url=https://developers.google.com/maps/documentation/embed/&key=AIzaSyDpr2hC_WO2q3tQ_1Om8y6NoZzldN6xA0Q" allowfullscreen></iframe>
+
+    <script type = 'text/javascript'>
+
+    function getTimeRemaining(endtime) {
+      var total = Date.parse(endtime) - Date.parse(new Date());
+      var seconds = Math.floor((total / 1000) % 60);
+      var minutes = Math.floor((total / 1000 / 60) % 60);
+      var hours = Math.floor((total / (1000 * 60 * 60)) % 24);
+      var days = Math.floor(total / (1000 * 60 * 60 * 24));
+      if (days.toString().length == 1) {
+          days = "0" + days;
+      }
+      return {
+        'total': total,
+        'days': days,
+        'hours': hours,
+        'minutes': minutes,
+        'seconds': seconds
+      };
+    }
+
+    function startClock(id, endtime) {
+      var clockDiv = document.getElementById(id);
+      var daysSpan = clockDiv.querySelector('.clock-days');
+      var hoursSpan = clockDiv.querySelector('.clock-hours');
+      var minutesSpan = clockDiv.querySelector('.clock-minutes');
+      var secondsSpan = clockDiv.querySelector('.clock-seconds');
+
+      function updateClock() {
+        var time = getTimeRemaining(endtime);
+
+        if(time.total > 0) {
+          daysSpan.innerHTML = time.days;
+          hoursSpan.innerHTML = ('0' + time.hours).slice(-2);
+          minutesSpan.innerHTML = ('0' + time.minutes).slice(-2);
+          secondsSpan.innerHTML = ('0' + time.seconds).slice(-2);
+        } else {
+          daysSpan.innerHTML = '<span style="color: gold; width: 34px;">&#9787;<span>';
+          hoursSpan.innerHTML = '<span style="color: gold; width: 34px;">&#9787;<span>';
+          minutesSpan.innerHTML = '<span style="color: gold; width: 34px;">&#9787;<span>';
+          secondsSpan.innerHTML = '<span style="color: gold; width: 34px;">&#9787;<span>';
+        }
+
+
+        if (time.total <= 0) {
+          clearInterval(timeinterval);
+        }
+      }
+
+      updateClock();
+      var timeinterval = setInterval(updateClock, 1000);
+    }
+
+    var deadline = new Date("November 01, 2017 00:00:00");
+    //var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
+    startClock('clockDiv', deadline);
+
+    </script>
+  </body>
+
+</html>
