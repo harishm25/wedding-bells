@@ -95,7 +95,7 @@ section:nth-of-type(3) {
 }
 
 section:nth-of-type(4) {
-  background-image: url('images/img4.jpg');
+  background-image: url('images/Sample1.jpg');
   justify-content: flex-end;
 }
 
