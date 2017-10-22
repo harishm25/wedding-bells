@@ -138,7 +138,7 @@ div.second-para, .third-para {
   font-family: cursive;
   max-width: 400px;
   float: right;
-  color: #f5e6b8;
+  color: #ffd700;
   margin: 15px;
 }
 
@@ -277,7 +277,7 @@ a.directions {
 
 .dates-info {
   /*animation: change-border-1 2500ms linear infinite;*/
-  color: wheat;
+  color: #ffd700;
 }
 
 @-webkit-keyframes change-border-1 {
